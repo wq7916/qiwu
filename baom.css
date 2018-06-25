@@ -1,0 +1,86 @@
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input,button{margin:0;padding:0;border:0}
+body{font-size:12px;margin:0 auto;background:#f2f2f2;font-family:'Microsoft YaHei',Helvetica,Arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none}
+input,button{outline: none;border: none}
+ol,ul,li{list-style:none}
+.fl{float:left}
+.fr{float:right}
+textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#fff}
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+
+.main{
+    width:10rem;
+    margin:0 auto;
+    overflow: hidden;
+    position:relative;
+    background: #f2f2f2;
+}
+.baom{
+    padding:2rem 0.5rem 0.5rem 0.5rem;
+}
+.baom img{
+    width:150px;
+    height:150px;
+}
+.baomList{
+    padding:0 0.5rem 1rem 0.5rem;
+}
+.baomList p{
+    margin-top:20px;
+    display: flex;
+}
+.baomList p label{
+    flex: 0 0 80px;
+    width:80px;
+    height:32px;
+    line-height: 32px;
+    font-size:16px;
+    color:#9b9b9b;
+}
+.baomList p input{
+    flex: 1;
+    height:30px;
+    border:1px solid #979797;
+    background: #ebebeb;
+    padding-left:10px;
+    font-size:16px;
+    color:#999;
+}
+.baomList button{
+    padding:10px 30px;
+    background: #3ec1c9;
+    font-size:16px;
+    color:#fff;
+    border-radius: 5px;
+    display: block;
+    margin:60px auto 40px;
+}
+.foot{
+    background: #f5f5f5;
+    padding:1rem 0.5rem;
+    border-top:1px solid #979797;
+}
+.foot h2{
+    font-size:18px;
+    color:#9b9b9b;
+    font-weight:normal;
+    text-align: center;
+    padding-bottom:1rem;
+}
+.foot p.p1{
+    font-size:16px;
+    color:#9b9b9b;
+    line-height: 24px;
+}
+.foot p.p2{
+    font-size:12px;
+    color:#9b9b9b;
+    padding-top:0.5rem;
+}
+.p3{
+    font-size:16px;
+    color:#9b9b9b;
+    padding:0.5rem;
+    display: none;
+}

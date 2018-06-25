@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="xuans.css">
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <script type="text/javascript">
+        (function(win){
+            var docEl = win.document.documentElement;
+            var timer = null;
+            function changeRem(){
+                var width = docEl.getBoundingClientRect().width;
+                if(width > 540)
+                {
+                    width = 540;
+                }
+                var fontS = width/10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize",function(){
+                clearTimeout(timer);
+                timer = setTimeout(changeRem,30)
+            },false);
+
+            win.addEventListener("pageshow",function(e){
+                if (e.persisted) //缓存
+                {
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem,30);
+                }
+            },false);
+            changeRem();
+        })(window);
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <!--<section class="list clearfix">-->
+                <!--<div class="list_head fl">-->
+                    <!--<img src="http://m.here-chic.com/upload/image/20180327/1522145630482087922.png">-->
+                <!--</div>-->
+                <!--<div class="list_content right10 fl">-->
+                    <!--<p class="name left">网友铁男</p>-->
+                    <!--<div class="article_word first_people fl">-->
+                        <!--<div class="con">-->
+                            <!--<div class="conLeft">-->
+                                <!--<p>保哥，最近有啥干货呀？share一下呗！</p>-->
+                            <!--</div>-->
+                            <!--<div class="conRight">-->
+                                <!--<img src="http://m.here-chic.com/upload/image/20180327/1522145456872067854.png">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="bottom clearfix"><span class="time">2018-03-20 12:01:02</span><span class="state stateN">未接单</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!--<section class="list clearfix">-->
+                <!--<div class="list_head fl">-->
+                    <!--<img src="http://m.here-chic.com/upload/image/20180327/1522145630482087922.png">-->
+                <!--</div>-->
+                <!--<div class="list_content right10 fl">-->
+                    <!--<p class="name left">网友铁男</p>-->
+                    <!--<div class="article_word first_people fl">-->
+                        <!--<div class="con">-->
+                            <!--<div class="conLeft">-->
+                                <!--<p>保哥，最近有啥干货呀？share一下呗！</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="bottom clearfix"><span class="time">2018-03-20 12:01:02</span><span class="state stateY">已接单</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!--<section class="list clearfix">-->
+                <!--<div class="list_head fr">-->
+                    <!--<img src="http://m.here-chic.com/upload/image/20180327/1522145545244060065.png">-->
+                <!--</div>-->
+                <!--<div class="list_content left10 fr">-->
+                    <!--<p class="name right">网友萌萌</p>-->
+                    <!--<div class="article_word first_people fr">-->
+                        <!--<div class="con">-->
+                            <!--<div class="conLeft">-->
+                                <!--<p class="back000">保哥，最近有啥干货呀？share一下呗！</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="bottom clearfix"><span class="time">2018-03-20 12:01:02</span><span class="state stateY">已接单</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+        </div>
+    </div>
+    <script src="iconfont/firstApi.js"></script>
+    <script>
+        api.listXs();
+        $(function () {
+            $(window).scroll(function () {
+                var bot = 2; //bot是底部距离的高度
+                if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                    clearTimeout(api.timers);
+                    api.timers = setTimeout(function () {
+                        api.listXs(api.offset);
+                    }, 500)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

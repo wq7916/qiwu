@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="baom.css">
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <script type="text/javascript">
+        (function(win){
+            var docEl = win.document.documentElement;
+            var timer = null;
+            function changeRem(){
+                var width = docEl.getBoundingClientRect().width;
+                if(width > 540)
+                {
+                    width = 540;
+                }
+                var fontS = width/10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize",function(){
+                clearTimeout(timer);
+                timer = setTimeout(changeRem,30)
+            },false);
+
+            win.addEventListener("pageshow",function(e){
+                if (e.persisted) //缓存
+                {
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem,30);
+                }
+            },false);
+            changeRem();
+        })(window);
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="baom">
+            <img src="images/logo.jpg">
+        </div>
+        <div class="baomList">
+            <p><label>姓名</label><input type="text" value="" id="name"/></p>
+            <p><label>身份证号</label><input type="text" value="" id="sfz"/></p>
+            <button>提交</button>
+        </div>
+        <p class="p3">您的信息已经提交，工作人员将在1个工作日内审核完成，您的加入说明您不傻。</p>
+        <div class="foot">
+            <h2>作者奖励机制</h2>
+            <p class="p1">单篇7元</p>
+            <p class="p1">满10篇奖励20元现金和150元代金劵</p>
+            <p class="p1">满20篇奖励50元现金和300元代金劵</p>
+            <p class="p1">满30篇奖励100元现金和500元代金劵</p>
+            <p class="p1">2018年12月31日前实行该政策。</p>
+            <p class="p2">*计酬以每个自然月为单位，每个ID流量前30位计算——每个月计酬三十篇封顶。</p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var userid = '10001';
+            $('.baomList button').click(function () {
+                var name = $('#name').val();
+                var sfz = $('#sfz').val();
+                if(name === '' || sfz === '') {
+                    return false;
+                } else {
+                    $.ajax({
+                        url: 'http://m.here-chic.com/apiController/news/addWriter.do?userId='+userid+'&realname='+name+'&identityCard='+sfz,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (res) {
+                            if(res.code === 200) {
+                                $('.baomList').hide();
+                                $('.p3').show();
+                            }
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        }
+                    })
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>

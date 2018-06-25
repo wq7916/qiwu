@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="iconfont/styleIndex.css" type="text/css">
+    <link rel="stylesheet" href="iconfont/iconfont.css" type="text/css">
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <script type="text/javascript">
+        (function(win){
+            var docEl = win.document.documentElement;
+            var timer = null;
+            function changeRem(){
+                var width = docEl.getBoundingClientRect().width;
+                if(width > 540)
+                {
+                    width = 540;
+                }
+                var fontS = width/10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize",function(){
+                clearTimeout(timer);
+                timer = setTimeout(changeRem,30)
+            },false);
+
+            win.addEventListener("pageshow",function(e){
+                if (e.persisted) //缓存
+                {
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem,30);
+                }
+            },false);
+            changeRem();
+        })(window);
+    </script>
+</head>
+<body>
+<div class="main">
+    <header class="mobile_header">
+        <i class="icon iconfont icon-sousuo"></i>
+        <i class="icon iconfont icon-yonghu"></i>
+        <h1>
+            <a href="http://m.here-chic.com/chic/index.do" class="logo" title="这就是时尚-绮物论"><img src="images/logo.png" alt="绮物论"></a>
+        </h1>
+    </header>
+    <div class="header">
+        <div class="hd">
+            <ul>
+                <!--<li class="active">时尚潮流<i></i></li>-->
+                <!--<li>绮谭娱论<i></i></li>-->
+                <!--<li>纸醉金迷<i></i></li>-->
+                <!--<li style="margin-right:0">绮物地图<i></i></li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="list_content">
+        <ul class="list">
+            <li class="listContent">
+                <img src="http://news.here-chic.com/wp-content/uploads/2017/12/1512375990-1328-46fc00019956852b5c9f.jpg" class="pic_tu">
+                <div class="list_bottom">
+                    <p class="title">盘点这些好玩又方便的新鲜支付场景</p>
+                    <div class="line"></div>
+                    <p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>
+                </div>
+                <div class="list_logo">
+                    <img src="images/logo.png">
+                    <p>chic绮物论</p>
+                </div>
+            </li>
+            <!--<li class="listContentMore">-->
+                <!--<div class="content">-->
+                    <!--<section>-->
+                        <!--<img src="http://img.cebnet.com.cn/20180118/102459180.jpg" class="pic_tu">-->
+                        <!--<div class="list_bottom">-->
+                            <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                            <!--<div class="line"></div>-->
+                            <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="list_logo">-->
+                            <!--<img src="images/logo.png">-->
+                            <!--<p>chic绮物论</p>-->
+                        <!--</div>-->
+                    <!--</section>-->
+                    <!--<section>-->
+                        <!--<img src="http://img.cebnet.com.cn/20180118/102459180.jpg" class="pic_tu">-->
+                        <!--<div class="list_bottom">-->
+                            <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                            <!--<div class="line"></div>-->
+                            <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="list_logo">-->
+                            <!--<img src="images/logo.png">-->
+                            <!--<p>chic绮物论</p>-->
+                        <!--</div>-->
+                    <!--</section>-->
+                    <!--<section>-->
+                        <!--<img src="http://img.cebnet.com.cn/20180118/102459180.jpg" class="pic_tu">-->
+                        <!--<div class="list_bottom">-->
+                            <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                            <!--<div class="line"></div>-->
+                            <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="list_logo">-->
+                            <!--<img src="images/logo.png">-->
+                            <!--<p>chic绮物论</p>-->
+                        <!--</div>-->
+                    <!--</section>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="listContent">-->
+                <!--<img src="http://news.here-chic.com/wp-content/uploads/2017/12/1512375990-1328-46fc00019956852b5c9f.jpg" class="pic_tu">-->
+                <!--<div class="list_bottom">-->
+                    <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                    <!--<div class="line"></div>-->
+                    <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                <!--</div>-->
+                <!--<div class="list_logo">-->
+                    <!--<img src="images/logo.png">-->
+                    <!--<p>chic绮物论</p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="listContentMore">-->
+                <!--<div class="content">-->
+                    <!--<section>-->
+                        <!--<img src="http://img.cebnet.com.cn/20180118/102459180.jpg" class="pic_tu">-->
+                        <!--<div class="list_bottom">-->
+                            <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                            <!--<div class="line"></div>-->
+                            <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="list_logo">-->
+                            <!--<img src="images/logo.png">-->
+                            <!--<p>chic绮物论</p>-->
+                        <!--</div>-->
+                    <!--</section>-->
+                    <!--<section>-->
+                        <!--<img src="http://img.cebnet.com.cn/20180118/102459180.jpg" class="pic_tu">-->
+                        <!--<div class="list_bottom">-->
+                            <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                            <!--<div class="line"></div>-->
+                            <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="list_logo">-->
+                            <!--<img src="images/logo.png">-->
+                            <!--<p>chic绮物论</p>-->
+                        <!--</div>-->
+                    <!--</section>-->
+                    <!--<section>-->
+                        <!--<img src="http://img.cebnet.com.cn/20180118/102459180.jpg" class="pic_tu">-->
+                        <!--<div class="list_bottom">-->
+                            <!--<p class="title">盘点这些好玩又方便的新鲜支付场景</p>-->
+                            <!--<div class="line"></div>-->
+                            <!--<p><i class="iconfont icon-guancha"></i><span>1111</span><i class="iconfont icon-shijian"></i><span>100</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="list_logo">-->
+                            <!--<img src="images/logo.png">-->
+                            <!--<p>chic绮物论</p>-->
+                        <!--</div>-->
+                    <!--</section>-->
+                <!--</div>-->
+            <!--</li>-->
+        </ul>
+        <!--<ul class="list"></ul>-->
+        <!--<ul class="list"></ul>-->
+        <!--<ul class="list"></ul>-->
+        <!--<ul class="list"></ul>-->
+        <!--<ul class="list"></ul>-->
+    </div>
+
+    <footer class="footer">
+        <!-- 版权 -->
+        <section class="copyright">
+            <p>Copyright © 2013-2017 PPTHINKING.保留所有权利</p>
+        </section>
+    </footer>
+</div>
+
+<div class="reminder"></div>
+<script src="iconfont/firstApi.js"></script>
+<script>
+    api.listHeader();
+    $(function () {
+        $(window).scroll(function () {
+            var bot = 2; //bot是底部距离的高度
+            if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                clearTimeout(api.timers);
+                api.timers = setTimeout(function() {
+                    api.listMore(api.index);
+                },500)
+            }
+            if($(document).scrollTop() >= 60){
+                $(".header").css('position','fixed');
+            }
+            else{
+                $(".header").css('position','relative');
+            }
+        });
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Title</title>
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <style>
+        body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, code, em, img, q, small, strong, dd, dl, dt, li, ol, ul, fieldset, form, label, table, tbody, tr, th, td, input, button {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        body {
+            font-size: 12px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+        body,html{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+        }
+        a, a:active, a:hover, a:focus, a:visited {
+            text-decoration: none
+        }
+
+        a, img {
+            -webkit-touch-callout: none
+        }
+
+        input, button {
+            outline: none;
+            border: none
+        }
+
+        ol, ul, li {
+            list-style: none
+        }
+
+        .fl {
+            float: left
+        }
+
+        .fr {
+            float: right
+        }
+        .main{
+            width:10rem;
+            margin:0 auto;
+        }
+        .tu{
+            display: block;
+        }
+        .logo{
+            width:10rem;
+        }
+        .button{
+            width:4.3rem;
+            margin:5% auto 15%;
+        }
+        .phone{
+            width:6rem;
+            margin:0 auto;
+        }
+        .tu img{
+            width:100%;
+        }
+    </style>
+    <script type="text/javascript">
+        (function (win) {
+            var docEl = win.document.documentElement;
+            var timer = null;
+
+            function changeRem() {
+                var width = docEl.getBoundingClientRect().width;
+                if (width > 540) {
+                    width = 540;
+                }
+                var fontS = width / 10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize", function () {
+                clearTimeout(timer);
+                timer = setTimeout(changeRem, 30)
+            }, false);
+
+            win.addEventListener("pageshow", function (e) {
+                if (e.persisted) //缓存
+                {
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem, 30);
+                }
+            }, false);
+            changeRem();
+        })(window);
+    </script>
+</head>
+<body>
+<div class="main">
+    <img src="images/logo2.jpg" class="logo tu">
+    <a href="#"><img src="images/button.png" class="button tu"></a>
+    <img src="images/phone.jpg" class="phone tu">
+</div>
+</body>
+</html>

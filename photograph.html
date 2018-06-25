@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>测试</title>
+    <style>
+        video {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 0 0 20px 0;
+        }
+        #canvas {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<textarea name="abstract" rows="3" style="width:72%" class="input-text" oninput="abstractContent()" id="abstractContent"></textarea>
+<span style="font-weight:bold;color:red;font-size:12px;display: inline-block;" id="restrictionNum">(最多500字)</span>
+<script>
+    function abstractContent() {
+        var x = document.getElementById('abstractContent').value.length;
+        document.getElementById('restrictionNum').innerHTML = '最多输入500字，还可以输入'+(500 - x)+'字';
+    }
+</script>
+</body>
+</html>

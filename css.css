@@ -1,0 +1,514 @@
+.shopShow {
+    width:4rem;
+    text-align:center;
+    font-size:12px;
+    color:#0085e8;
+}
+
+
+textarea,input[type="password"],input[type="text"] {
+    resize: none;
+    outline: 0;
+    -webkit-appearance: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #fff
+}
+
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.right10 {
+    margin-left: 0.2rem;
+    width: 6.4rem;
+}
+
+.left10 {
+    margin-right: 0.2rem;
+    width: 6.4rem;
+}
+
+body {
+    background: #ebebeb;
+}
+
+.main {
+    width: 10rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #ebebeb;
+}
+
+.content {
+    padding: 0 0.2rem;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto
+}
+
+.content section {
+    margin-top: 20px;
+}
+
+.list_head {
+    width: 1rem;
+    height: 1rem
+}
+
+.list_head img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.list_content .name {
+    font-size: 14px;
+    color: #666;
+}
+
+.list_content .article_word {
+    border-radius: 5px;
+    margin-top: 0.2rem;
+}
+
+.list_content .article_word span {
+    display: block;
+    padding: 0.2rem;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.list_content .article_word span a {
+    color: #f1885f;
+    /**font-style: italic;**/
+    font-size: 16px;
+    font-weight:500;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-decoration:underline;
+}
+
+.first_people {
+    color: #333333;
+    background: #Ffffff;
+}
+
+.second_people {
+    color: #Ffffff;
+    background: #0085e8;
+}
+
+.list_content .article_tu {
+    width: 4rem;
+    cursor: pointer;
+}
+
+.list_content .article_tu img {
+    width: 100%;
+    margin-top: 0.2rem;
+    cursor: pointer;
+}
+
+.list_content .article_tu_noa {
+    width: 4rem;
+    cursor: pointer;
+}
+
+.list_content .article_tu_noa img {
+    width: 100%;
+    margin-top: 0.2rem;
+    cursor: pointer;
+}
+
+.hyy {
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    width: 45px;
+    margin: 0 auto;
+    background: #adabab;
+    font-weight: 500;
+    padding: 1px 0;
+    border-radius: 4px;
+}
+
+.aside_people {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    line-height: 20px;
+    padding: 0.1rem 1rem 0 1rem;
+}
+
+.aside_tu {
+    max-width: 250px;
+    margin: 5px auto 0;
+    display: block;
+    cursor: pointer;
+}
+
+.aside_tu_noa {
+    max-width: 250px;
+    margin: 5px auto 0;
+    display: block;
+    cursor: pointer;
+}
+
+.footer_desc {
+    font-size: 0.4rem;
+    color: #fff;
+    text-align: center;
+    width: 50px;
+    margin: 0 auto;
+    background: #333333;
+    font-weight: 500;
+    padding: 1px 0;
+    border-radius: 1px;
+    display:none;
+}
+
+.footer_pic {
+    border:solid 2px #eee;
+    max-width: 95%;
+    margin: 5px auto 30px;
+    display: block;
+    cursor: pointer;
+}
+
+.next {
+    width: 9rem;
+    padding: 10px 0.5rem;
+    position: fixed;
+    left: 50%;
+    margin-left: -5rem;
+    bottom: 0;
+    background: #ebebeb;
+}
+
+.nextTick .frame {
+    position: absolute;
+    top: 10px;
+    width: 40px;
+}
+
+.nextTick .frame_left {
+    left: 10px;
+}
+
+.nextTick .frame_right {
+    right: 10px;
+}
+
+.next_button {
+    width: 75px;
+    display: block;
+    margin: 18px auto 10px;
+}
+
+.content section:last-of-type {
+    margin-bottom: 70px;
+}
+
+.titleShow {
+    padding:8px 5px 0 5px;
+}
+
+.titleShow h2 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: normal;
+    color: #333;
+    padding-bottom: 5px;
+}
+.postinfo {
+    color: #999;
+    margin: 2px 0 0;
+    overflow: hidden;
+}
+.postinfo>span, .postinfo>div>span {
+    padding: 0 6px;
+    position: relative;
+    display: inline-block;
+    line-height: 24px;
+    font-size:12px;
+}
+.postinfo>span:before, .postinfo>div>span:before {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 10px;
+    background-color: #ddd;
+    right: -1px;
+    top: 7px;
+}
+.postinfo .author img {
+    width: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100%;
+    margin-right: 6px;
+}
+.postinfo a {
+    color: #999;
+}
+
+/*提示*/
+.reminder {
+    position: fixed;
+    z-index: 100000;
+    height: 66px;
+    top: 0;
+    left: 0;
+    line-height: 66px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    display: none
+}
+
+.reminder.success {
+    background: rgba(60, 165, 246, 0.75);
+}
+
+.reminder.error {
+    background: rgba(246, 55, 86, 0.85)
+}
+
+/**图片浮层**/
+.picture {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    cursor: pointer;
+}
+
+.picture .pic {
+    width: 9rem;
+    height: 80%;
+    margin: 20% auto 0;
+}
+
+.picture .pic img {
+    width: 100%
+}
+
+.picture span {
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -20px;
+    cursor: pointer;
+}
+
+.picture span img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.linkimg img{
+    border:2px dashed #ff0076;
+}
+
+/**结束浮层**/
+.endfloat {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(214, 58, 95, 0.9);
+    display: none;
+    cursor: pointer;
+}
+
+.endfloat .pic {
+    width: 9rem;
+    height: 80%;
+    margin: 30% auto 0;
+}
+
+.endfloat .pic img {
+    width: 100%
+}
+
+.endfloat span {
+    width: 66px;
+    height: 66px;
+    display: block;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    margin-left: -33px;
+    cursor: pointer;
+}
+
+.endfloat span img {
+    width: 100%;
+    cursor: pointer;
+}
+
+/**锁定浮层**/
+.loveHereChic {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.loveHereChic p {
+    height: 22px;
+    font-family: inherit;
+}
+
+
+.loveHereChic .pic {
+    width: 6rem;
+    height: 80%;
+    margin: 40% auto 0;
+}
+
+.loveHereChic .pic img {
+    width: 100%
+}
+
+.loveHereChic span {
+    height: 30px;
+    display: block;
+    position: absolute;
+    bottom: 30%;
+    left: 23%;
+    margin: 40% auto 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    color: #666;
+}
+
+.loveHereChic span img {
+    width: 100%;
+    cursor: pointer;
+}
+
+/*悬浮层*/
+.layer {
+    height: 50px;
+    position: fixed;
+    right: 10px;
+    bottom: 60px;
+    z-index: 4;
+}
+
+.layer_menu {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 5;
+    border-radius: 50%;
+}
+
+.layer_menu .black_bg {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    float: left;
+    margin-right: 10px;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    border-radius: 50%;
+}
+
+.layer_menu img {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+}
+
+.layer_show {
+    width: 250px;
+    height: 50px;
+    padding-right: 50px;
+    border-radius: 25px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.show_bg {
+    width: 300px;
+    height: 45px;
+    border-radius: 25px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 4;
+}
+
+.layer_show ul {
+    width: 250px;
+    height: 36px;
+    padding: 5px 0px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 5;
+}
+
+.layer_show ul li {
+    width: 25%;
+    float: left;
+    display: block;
+    text-align: center;
+}
+
+.layer_show ul li a {
+    width: 100%;
+    color: #fff;
+    float: left;
+}
+
+.layer_show ul li a p {
+    font-size: 12px;
+}
+
+/*评论*/
+.content-comment{
+    margin-bottom:70px;
+}

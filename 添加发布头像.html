@@ -1,0 +1,873 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>绮物论</title>
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <link href="http://m.here-chic.com/css/chic/app_scene.css?ver=20180619" rel="stylesheet" type="text/css" />
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+    <script src="http://m.here-chic.com/js/base64.js" type="text/javascript"></script>
+    <script src="iscroll.js"></script>
+    <script type="text/javascript">
+        //通用代码
+        (function (win) {
+            var docEl = win.document.documentElement;
+            var timer = null;
+
+            function changeRem() {
+                var width = docEl.getBoundingClientRect().width;
+                if (width > 540) {
+                    width = 540;
+                }
+                var fontS = width / 10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize", function () {
+                clearTimeout(timer);
+                timer = setTimeout(changeRem, 30)
+            }, false);
+
+            win.addEventListener("pageshow", function (e) {
+                if (e.persisted){
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem, 30);
+                }
+            }, false);
+            changeRem();
+        })(window);
+    </script>
+    <script type="text/javascript">
+        //强制关注微信号代码
+        var uaBrowser = window.navigator.userAgent.toLowerCase();
+        var loveHereChic = false;
+        var isWeixin = false;
+        var loveHereChicShow = false;
+        if (uaBrowser.match(/MicroMessenger/i) == 'micromessenger') {
+            isWeixin = true;
+        }
+        //如果是微信打開的并且第一次進入
+        if(isWeixin && loveHereChic != 1){
+            document.location="http://m.here-chic.com/api/getCode.do?newsId=10000804"
+        }
+    </script>
+    <style>
+        .mainCon{
+            width:9rem;
+            margin: 0 auto;
+            height:94px;
+            border:1px solid #f2f2f2;
+            padding:5px 0 2px 0;
+        }
+        #wrapper{
+            width:9rem;
+            height:74px;
+            position:relative;
+            overflow: hidden;
+        }
+        .mainCon span{
+            font-size:12px;
+            color:#f00;
+            padding-left:5px;
+            line-height:20px;
+        }
+        #scroller{
+            position:absolute;
+            z-index:1;
+            height:74px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        #scroller ul li{
+            width:56px;
+            height:74px;
+            float: left;
+            margin-left:10px;
+            text-align: center;
+        }
+        #scroller ul li img.active{
+            border:2px solid #f00;
+        }
+        #scroller ul li:first-child {
+            margin-left:0
+        }
+        #scroller ul li img{
+            width:50px;
+            height:50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        #scroller ul li p{
+            font-size:12px;
+            color:#999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="head-tou"></div>
+    <div class="titleShow">
+        <h2>推理系列-图书馆</h2>
+        <div class="postinfo">
+            <div class="left">
+                <!--作者-->
+                <span class="author"><a href="http://news.here-chic.com/archives/author/admin" title="">
+                <img class="avatar" src="http://m.here-chic.com/images/app/header/0.png"></a></span>
+                <!--分类-->
+                <span class="category"><a href="http://news.here-chic.com/teenix" rel="category tag">七嘴八舌</a></span>
+                <!--时间-->
+                <span class="date">2018-06-22 21:35:10</span>
+            </div>
+        </div>
+    </div>
+
+    <!--内容显示-->
+    <div class="content" id="content"></div>
+
+    <div class="next">
+        <div class="nextTick">
+            <img src="/images/1.jpg" class="frame_left frame">
+            <img src="/images/2.jpg" class="frame_right frame">
+            <img src="/images/3.jpg" class="next_button">
+        </div>
+    </div>
+
+    <div class="picture">
+        <div class="pic">
+            <img src="">
+        </div>
+    </div>
+
+    <div class="endfloat">
+        <div class="pic">
+            <img src="/images/chic_end.jpg">
+        </div>
+        <span><a href="http://m.here-chic.com/chic/index.do"><img src="/images/u137.png"></a></span>
+    </div>
+
+</div>
+
+<!--App下载层-->
+<div class="ls-download-banner top" id="downloadApp">
+    <a href="javascript:void(0)" class="close"></a>
+    <a href="https://itunes.apple.com/cn/app/id1384367244" target="_blank" class="download download-link" rel="nofollow">
+        <div class="logo"><div class="mask"></div></div>
+        <div class="banner-label"><p class="tb" data-node="appName">绮物论</p><p class="title-sub">戏精们的剧本社交舞台</p></div>
+        <div class="open">App内打开</div>
+    </a>
+</div>
+
+<!--wap评论付出层-->
+<div class="publish">
+    <div class="postingPictures">
+        <div class="postHead">
+            <span class="back"></span>
+            <span class="post">提交</span>
+        </div>
+        <div class="postP">
+            <textarea type="text" class="postContent" placeholder="戏精们，请开始你的婊演吧..." cols="100" rows="4"></textarea>
+            <div class="pictureList clearfix" style="display:none">
+                <ul id="PicUpload">
+                    <li class="z-file">
+                        <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/png" multiple>
+                    </li>
+                </ul>
+            </div>
+            <div class="mainCon">
+                <span>请选择发言的角色：</span>
+                <div id="wrapper">
+                    <div id="scroller">
+                        <ul>
+                            <!--<li><img src="http://img.here-chic.com/38FC36E0-C6E8-4C77-B536-71B933D0934C"><p>你好</p></li>-->
+                            <!--<li><img src="http://img.here-chic.com/38FC36E0-C6E8-4C77-B536-71B933D0934C"><p>你好</p></li>-->
+                            <!--<li><img src="http://img.here-chic.com/38FC36E0-C6E8-4C77-B536-71B933D0934C"><p>你好</p></li>-->
+                            <!--<li><img src="http://img.here-chic.com/38FC36E0-C6E8-4C77-B536-71B933D0934C"><p>你好</p></li>-->
+                            <!--<li><img src="http://img.here-chic.com/38FC36E0-C6E8-4C77-B536-71B933D0934C"><p>你好</p></li>-->
+                            <!--<li><img src="http://img.here-chic.com/38FC36E0-C6E8-4C77-B536-71B933D0934C"><p>你好</p></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--用户提示层-->
+<div class="reminder"></div>
+<div class="list-mask"></div>
+<div class="reminder2"><p>正在提交...</p></div>
+<div class="comment"></div>
+<script>
+
+    //微信发布内容相关代码
+    $(function () {
+        $('.comment').click(function () {
+            $("#downloadApp").hide();
+            $(".publish,.list-mask").fadeIn(500);
+
+            //家在头像
+            var par = 'par={"newsId":10000785,"pageNo": 1,"pageSize": 20}';
+            $.ajax({
+                url: 'http://m.here-chic.com/app/role/getListByNewsId.do?'+encodeURI(par),
+                type: 'GET',
+                dataType: 'json',
+                success: function (obj) {
+                    if (obj.resCode === "200") {
+                        var arr = obj.resData.rows;
+                        console.log(arr)
+                        var html = '', num = 0;
+                        for(var i = 0; i < arr.length; i++){
+                            if(arr[i].avatar) {
+                                num ++;
+                                html += '<li data-name="'+arr[i].name+'" data-avatar="'+arr[i].avatar+'"><img src="'+arr[i].avatar+'"><p>'+arr[i].name+'</p></li>'
+                            }
+                        }
+                        $('#scroller ul').html(' ');
+                        $('#scroller ul').append(html);
+                        $('#scroller').width(num * (56 + 10) + 4); // 计算scroller的宽度
+                        loaded();
+                        headCheck();
+                    }
+                }
+            })
+        })
+        // 加载头像滚动
+        var myScroll, dataAvatar = '' , dataName = '';
+        function loaded() {
+            myScroll = new IScroll('#wrapper', {
+                scrollX: true,
+                scrollY: false,
+                click: true,
+                bounce: true
+            })
+        }
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+            capture: false,
+            passive: false
+        } : false);
+
+        function isPassive() {
+            var supportsPassiveOption = false;
+            try {
+                addEventListener("test", null, Object.defineProperty({}, 'passive', {
+                    get: function () {
+                        supportsPassiveOption = true;
+                    }
+                }));
+            } catch(e) {}
+            return supportsPassiveOption;
+        }
+
+        // 头像选中
+        function headCheck() {
+            $('#scroller ul li').click(function () {
+                $(this).find('img').addClass('active').parent('li').siblings().find('img').removeClass('active');
+                dataAvatar = $(this).attr('data-avatar');
+                dataName = $(this).attr('data-name');
+                console.log(dataAvatar + dataName);
+            })
+        }
+
+        $(".back").click(function () {
+            $(".publish,.list-mask").fadeOut(500)
+        })
+
+        var input = document.getElementById("file");
+        var result, div, ext,imgArr = [];
+
+        if(typeof FileReader==='undefined'){
+            result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+            input.setAttribute('disabled','disabled');
+        }else{
+            input.addEventListener('change',readFile,false);
+        }
+
+        function readFile(){
+            if(this.files.length>1){
+                console.log(this.files.length)
+                changeReminder('error','最多1张，请重新选择！');
+                return false;
+            }
+            for(var i=0;i < this.files.length;i++){
+                if (!input['value'].match(/.jpg|.gif|.png/i)){
+                    return alert("上传的图片格式不正确，请重新选择")
+                }
+                var imgSrcUrl = input['value'];
+                var imgExtDot = imgSrcUrl.indexOf(".");
+                ext = imgSrcUrl.substring(imgExtDot);
+
+                var reader = new FileReader();
+
+                reader.readAsDataURL(this.files[i]);
+
+                reader.onload = function(e){
+                    var imgUrl = e.target.result;
+                    imgArr.push(imgUrl);
+                    result = '<img src="'+this.result+'">';
+                    div = document.createElement('li');
+                    div.innerHTML = result;
+                    $("#PicUpload").prepend(div);
+                }
+            }
+
+            $('#PicUpload li.z-file').hide();
+        }
+
+        $(".post").click(function(){
+            var text = $(".postContent").val();
+            var length = $("#PicUpload li").length;
+
+            if (text && length >= 2) {
+                changeReminder('error','请勿同时提交文字及图片');
+                return;
+            }
+            if(text || length >= 2){
+                $(".reminder2").fadeIn(300);
+                var userId = '';
+                var itemId = '10000804';
+                //var content =  text ? text : BASE64.encoder(imgArr[0]);
+                // console.log(imgArr[0].length);
+                // console.log(imgArr[0]);
+                var content =  text ? text : imgArr[0];
+                var userName =  '';
+                var userPhoto =  '';
+                if (dataAvatar && dataName){
+                    userName = dataName;
+                    userPhoto = dataAvatar;
+                }
+                var postpar = '{"itemId":"'+itemId+'","userId":"'+userId+'","userName":"'+userName+'","userPhoto":"'+userPhoto+'","content":"'+content+'","ext":"'+ext+'","sign": "8888888"}';
+
+                $.ajax({
+                    url:'http://m.here-chic.com/apiController/news/addNewsComment.do',
+                    dataType:'json',
+                    data:{'par':postpar},
+                    type:'POST',
+                    success:function(res){
+                        //alert(res.resCode);
+                        if (res.resCode == 200) {
+                            $(".reminder2").fadeOut(500);
+                            changeReminder('success','发布成功!');
+                            appShowDialog(res.resData.id);
+                            $(".postContent").val("");
+                            $(".publish,.list-mask").fadeOut(500);
+
+
+                            //setTimeout(function () {
+                            //    window.location.reload();
+                            //},1000)
+                        }else{
+                            changeReminder('error','上传失败！')
+                        }
+                    }
+                })
+            }else{
+                changeReminder('error','请在文字或图片选择一项进行上传！')
+            }
+        })
+    })
+</script>
+<!--新加结束-->
+
+<script>
+    //加载完了提示
+    function changeReminder(zt, bt) {
+        if (zt == 'success') {
+            $('.reminder').removeClass('error');
+        } else {
+            $('.reminder').removeClass('success');
+        }
+        $('.reminder').html(bt);
+        $('.reminder').addClass(zt);
+        $('.reminder').slideDown();
+        setTimeout(function () {
+            $('.reminder').slideUp();
+        }, 5000)
+    }
+
+    //第二次打开页面要快速显示
+    var autoPlayTime = 3000;//自动播放的速度；
+    if(window.localStorage){
+        var storage=window.localStorage;
+        //storage.setItem("newsIds","");//先去掉了 2018-06-14
+        var newsIds = storage.getItem("newsIds");
+        if(newsIds == null){
+            newsIds = "";
+        }
+        var thisIds = "10000804";
+        if(newsIds.indexOf(thisIds)>=0){
+            //changeReminder('error','请搓下面评论图标开始接龙');
+            autoPlayTime = 250;
+        }else{
+            changeReminder('error','搓一下看一句,不搓就自动');
+            newsIds += thisIds+",";
+        }
+        storage.setItem("newsIds",newsIds);
+    }
+
+    var THIS_DOMAIN = "http://m.here-chic.com";
+    $(function () {
+        var obj = [], i = 0, j = 0, isover = false, objLength = '', objLastId = '', objRight = true, objComment = [];
+        $.ajax({
+            url: THIS_DOMAIN + '/api/list.do?newsId=10000804',
+            type: 'GET',
+            dataType: 'json',
+            success: function (res) {
+                if (res.success) {
+                    obj = res.obj;
+                    add(i);
+                }
+            }
+        });
+
+        //3秒钟自动播放
+        var timer = setInterval(autoPlay, autoPlayTime);
+
+        //添加对话场景
+        function add(i) {
+            var html = '';
+            var roleAvatar = obj[i].roleAvatar;
+            //alert(roleAvatar);
+            if(roleAvatar!=null && (roleAvatar.indexOf('http')<0)){//如果不是全路径就加上域名
+                roleAvatar = THIS_DOMAIN + roleAvatar;
+            }
+            var roleName = obj[i].roleName;
+            var roleType = obj[i].roleType;
+
+            var type = obj[i].type;
+            var link = obj[i].link;
+            var keyword = obj[i].keyword;
+            var content = obj[i].content;
+
+            if (type == 1 && keyword != null && keyword != "" && link != null && link != "") {
+                content = content.replace(keyword, '<a href="' + link + '">' + keyword + '</a>');
+            }
+
+            if (type == 2) {//图片
+                var imgsrc = content;
+                if(imgsrc.indexOf('http')<0){//如果不是全路径就加上域名
+                    imgsrc = THIS_DOMAIN + imgsrc;
+                }
+                loadImg(imgsrc, i);//加载图片
+                if (link != null && link != "") {
+                    if (roleType == 0) {
+                        content = '<a href="' + link + '" class="linkimg"><img src="' + imgsrc + '" class="aside_tu"/></a>';//旁白需要多加个样式
+                    } else {
+                        content = '<a href="' + link + '" class="linkimg"><img src="' + imgsrc + '" class="article_tu"/></a><span>【点图购买】</span>';
+                    }
+                } else {
+                    if (roleType == 0) {
+                        content = '<img src="' + imgsrc + '" class="aside_tu_noa commonPic" />';//旁白需要多加个样式
+                    } else {
+                        content = '<img src="' + imgsrc + '" class="article_tu_noa commonPic" />';
+                    }
+                }
+            }
+
+            if (roleType === 1) {//主角
+                if (type === 1) {//文字
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="' + roleAvatar + '"></div><div class="list_content right10 fl"><p class="name left">' + roleName + '</p><p class="article_word first_people fl"><span>' + content + '</span></p></div></section>';
+                }
+                if (type === 2) {//图片
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="' + roleAvatar + '"></div><div class="list_content right10 fl"><p class="name left">' + roleName + '</p><p class="shopShow">' + content + '</p></div></section>';
+                }
+            }
+
+            if (roleType === 2) {//配角
+                if (type === 1) {
+                    html = '<section class="list clearfix"><div class="list_head fr"><img src="' + roleAvatar + '"></div><div class="list_content left10 fr"><p class="name right">' + roleName + '</p><p class="article_word fr second_people"><span>' + content + '</span></p></div></section>';
+                }
+                if (type === 2) {
+                    html = '<section class="list clearfix"><div class="list_head fr"><img src="' + roleAvatar + '"></div><div class="list_content left10 fr"><p class="name right">' + roleName + '</p><p class="fr shopShow">' + content + '</p></div></section>';
+                }
+            }
+
+            if (roleType === 0) {//旁白
+                if (type === 1) {
+                    html = '<section class="clearfix"><h2 class="hyy">画外音</h2><p class="aside_people">' + content + '</p></section>';
+                }
+                if (type === 2) {
+                    html = '<section class="clearfix"><h2 class="hyy">画外音</h2>' + content + '</section>';
+                }
+            }
+            $('.content').append(html);
+            return true;
+        }
+
+        //追加评论
+        function addComment(j) {
+
+            var roleAvatar = objComment[j].userPhoto;
+            var roleName = objComment[j].userName;
+            var content = objComment[j].commentContent
+            var objIsImg = false;
+            if(content.indexOf("http")>=0){
+                content = content.split(",")[0];
+                content = '<img src="' + content + '" class="article_tu_noa commonPic" />';
+                objIsImg = true;
+            }
+
+            var html = '';
+
+            if(j === 0){//第一个放左面
+                if(objIsImg){
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="' + roleAvatar + '"></div><div class="list_content right10 fl"><p class="name left">' + roleName + '</p><p class="shopShow">' + content + '</p></div></section>';
+                }else{
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="'+ roleAvatar +'"></div><div class="list_content right10 fl"><p class="name left">'+ roleName +'</p><p class="article_word first_people fl"><span>'+ content +'</span></p><div class="clearfix"></div></div></section>';
+                }
+                objRight = false;
+            } else {
+                if(objLastId != objComment[j].userId) {
+                    objRight=!objRight;
+                }
+                if (objRight) {
+                    if(objIsImg){
+                        html = '<section class="list clearfix"><div class="list_head fr"><img src="' + roleAvatar + '"></div><div class="list_content left10 fr"><p class="name right">' + roleName + '</p><p class="fr shopShow">' + content + '</p></div></section>';
+                    }else{
+                        html = '<section class="list clearfix"><div class="list_head fr"><img src="'+ roleAvatar +'"></div><div class="list_content left10 fr"><p class="name right">'+ roleName +'</p><p class="article_word first_people fr"><span>'+ content +'</span></p><div class="clearfix"></div></div></section>';
+                    }
+                } else {
+                    if(objIsImg){
+                        html = '<section class="list clearfix"><div class="list_head fl"><img src="' + roleAvatar + '"></div><div class="list_content right10 fl"><p class="name left">' + roleName + '</p><p class="shopShow">' + content + '</p></div></section>';
+                    }else{
+                        html = '<section class="list clearfix"><div class="list_head fl"><img src="'+ roleAvatar +'"></div><div class="list_content right10 fl"><p class="name left">'+ roleName +'</p><p class="article_word first_people fl"><span>'+ content +'</span></p><div class="clearfix"></div></div></section>';
+                    }
+                }
+            }
+
+            objLastId = objComment[j].userId;
+            $('.content').append(html);
+            return true;
+        }
+
+        //获取评论接口
+        var api = {
+            sign: '88888888',
+            apiUrl: 'http://m.here-chic.com/apiController/',   //全局接口前缀
+            pageNo: 1,
+            pageNo0: 1, //page
+            pageNo1: 1, //page
+            pageSize: 1000, //每次加载条数
+            itemId: 10000804, //文章id
+            type: 1,  //类型
+            index: '',
+            falg:true,
+            tableSearchList: function (flag) { //评论对话
+                var par = encodeURI('par={"itemId":"'+this.itemId+'","pageNo":"'+this.pageNo+'","pageSize":"'+this.pageSize+'","itemType":"'+this.type+'","sortType":"0","sign": "'+api.sign+'"}');
+                //alert(par);
+                $.ajax({
+                    url: this.apiUrl+'news/commentList.do?'+par,
+                    dataType:'json',
+                    success:function(data){
+                        if(data != null ) {
+                            objComment = data.resData.rows;
+                        }
+                    }
+                })
+            }
+
+        };
+        api.tableSearchList(true);
+
+        //点击按钮阅读
+        $('.main').click(function (e) {
+            clearInterval(timer);
+            var _con = $('.commonPic');
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+                if(obj && i < obj.length - 1){
+                    i += 1;
+                    if (add(i)) {
+                        scrollBottom();
+                    }
+                } else {
+                    //准备开始加载第一个评论
+                    if(j == 0){
+                        var html = '<section class="clearfix"><h2 class="footer_desc">接龙</h2></section>';
+                        $('.content').append(html);
+                    }
+
+                    if( j > objComment.length -1 ){
+                        if (!isover) {//最后一次加载footer
+                            if(isWeixin){
+                                $("#downloadApp").show();//微信页面下载APP浮层
+                                var html = '<section class="clearfix"><h2 class="footer_desc">请戳右下角那个有笔的圆球开始婊演</h2></section>';
+                                $('.content').append(html);
+                            }
+
+                            scrollBottom();
+                        }
+                        isover = true;
+                    } else {
+                        if (addComment(j)){
+                            scrollBottom();
+                            j += 1;
+                        }
+                    }
+                }
+
+                $('section .aside_tu').each(function () {
+                    var width = $(this).width();
+                    if (width == 0) width = 250;
+                    if (width > 250) {
+                        $(this).css('width', '250px');
+                    } else {
+                        $(this).css('width', width + 'px');
+                    }
+                })
+
+                //到10的时候锁屏
+                if (i == 10) {
+                    //loveHereChicFun();
+                }
+
+            }
+        });
+
+        //点击加载大图
+        function loadImg(src, index) {
+            var img = new Image();
+            img.src = src;
+            img.onload = function () {
+                $('.face-' + index).attr('src', src);
+                scrollBottom();
+            }
+        }
+
+        //屏幕自动加载高度
+        function scrollBottom() {
+            var windowHeight = $(window).height() - $('.next').height() - $('.titleShow').height();
+            var content = document.getElementById('content');
+            var nowHeight = content.offsetHeight;
+            var height = nowHeight - windowHeight;
+            if (nowHeight >= windowHeight) {
+                $("body,html").animate({scrollTop: height}, 500);
+            }
+        }
+
+        //自动播放
+        function autoPlay() {
+            //显示正常的场景内容
+            if (obj && i < (obj.length - 1)) {
+                i += 1;
+                if (add(i)) {
+                    scrollBottom();
+                }
+                //正常的场景内容显示完成后 显示用户参与的评论内容
+            } else {
+                //准备开始加载第一个评论
+                if(i != 0 && j == 0){
+                    var html = '<section class="clearfix"><h2 class="footer_desc">接龙</h2></section>';
+                    $('.content').append(html);
+                }
+                if( j > objComment.length -1 ){
+                    if (!isover) {//最后一次加载footer
+                        if(isWeixin){
+                            $("#downloadApp").show();//微信页面下载APP浮层
+                            var html = '<section class="clearfix"><h2 class="footer_desc">请戳右下角那个有笔的圆球开始婊演</h2></section>';
+                            $('.content').append(html);
+                        }
+                        scrollBottom();
+                    }
+                    isover = true;
+                } else {
+                    if (addComment(j)){
+                        scrollBottom();
+                    }
+                }
+                j += 1;
+            }
+        }
+
+        $('body').on('click', '.commonPic', function () {
+            var imgUrl = $(this).attr('src');
+            $('.picture').fadeIn();
+            $('.picture .pic img').attr('src', imgUrl);
+        })
+        $('body').on('click', '.picture', function () {
+            $('.picture').hide();
+        })
+
+    })
+
+    //新发的评论
+    //function appShowDialog(id){
+    //alert("发表评论成功"+id);
+    //}
+
+    //function showComment(id){
+    //alert("点击评论框"+id);
+    //}
+
+</script>
+
+<script type="text/javascript">
+    //微信内部分享部分
+    $(function () {
+        var url = location.href.split('#')[0];
+        var title = "推理系列-图书馆";
+        if(title.length<8){
+            title = title + "-来玩角色扮演";
+        }
+        var link = "http://m.here-chic.com/app/scene.do?newsId=10000804";
+        var imgUrl = "/upload/image/20180622/1529674455274077978.jpg";
+        if(imgUrl.indexOf("http")<0){
+            imgUrl = "http://m.here-chic.com"+imgUrl;
+        }
+        var desc = "听说能借开图书馆之谜的人智商一般都不会高于80，你要不要试试";
+        if(desc.length<5){
+            desc = "《绮物论》戏精们的剧本社交舞台"
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://m.here-chic.com/api/getWeixinTicket.do",
+            dataType: "JSON",
+            async: true,
+            data: {
+                "url": url,
+            },
+            success: function (dataStr) {
+                //console.log("data ======"+dataStr);
+                var data = eval(dataStr);
+                wx.config({
+                    debug: false,
+                    appId: data.appid,
+                    timestamp: data.timestamp,
+                    nonceStr: data.nonceStr,
+                    signature: data.signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+            },
+            error: function (xhr, status, error) {
+                //alert(status);
+                //alert(xhr.responseText);
+            },
+        });
+        /* */
+        wx.ready(function () {
+            console.log("调用微信分享功能");
+            //flag = false ;
+            wx.onMenuShareTimeline({
+                title: title,
+                link: link,
+                imgUrl: imgUrl,
+                trigger: function (res) {
+                    console.log('click shared');
+                },
+                success: function (res) {
+                    console.log('shared success');
+                    location.href = url;
+                    //some thing you should do
+                },
+                cancel: function (res) {
+                    console.log('shared cancle');
+                    location.href = url;
+                },
+                fail: function (res) {
+                    console.log(JSON.stringify(res));
+                }
+            });
+
+            //分享给好友
+            wx.onMenuShareAppMessage({
+                title: title, // 分享标题
+                desc: desc,// 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl,// 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                //dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    console.log('shared success');
+                    location.href = url;
+                    //some thing you should do
+                },
+                cancel: function () {
+                    console.log('shared cancle');
+                    location.href = url;
+                    //some thing you should do
+                }
+            });
+
+            wx.error(function (res) {
+                console.log(res.errMsg);
+            });
+        });
+
+        /*************end of 分享相关代码***********************************/
+    })
+</script>
+
+<script>
+    //发布评论后的调用，app和wap都会调用
+    function appShowDialog(id){
+        $.ajax({
+            url: 'http://m.here-chic.com/app/comment/getCommentInfo.do?'+ encodeURI('par={"id":"'+id+'"}'),
+            dataType:'json',
+            success: function (data) {
+                var objComment = data;
+                if (objComment.resCode == 200) {
+                    objCommentArr = objComment.resData;
+                    var roleAvatar = objCommentArr.headImg;
+                    var roleName = objCommentArr.userName;
+                    var content = objCommentArr.commentContent;
+                    var objIsImg = false;
+                    if(content.indexOf("http")>=0){
+                        content = content.split(",")[0];
+                        content = '<img src="' + content + '" class="article_tu_noa commonPic" />';
+                        objIsImg = true;
+                    }
+
+                    var html = '';
+                    if(objIsImg){
+                        html = '<section class="list clearfix"><div class="list_head fr"><img src="' + roleAvatar + '"></div><div class="list_content left10 fr"><p class="name right">' + roleName + '</p><p class="fr shopShow">' + content + '</p></div></section>';
+                    }else{
+                        html = '<section class="list clearfix"><div class="list_head fr"><img src="'+ roleAvatar +'"></div><div class="list_content left10 fr"><p class="name right">'+ roleName +'</p><p class="article_word first_people fr"><span>'+ content +'</span></p><div class="clearfix"></div></div></section>';
+                    }
+
+                    $('.content').append(html);
+                    scrollBottom();
+                }
+            }
+        })
+    }
+</script>
+
+<script>
+    //不是微信页面没有发布按钮
+    // if(!isWeixin){
+    //     $(".comment").hide();
+    // }
+    if(isWeixin){
+        $(".head-tou").hide();
+    }
+    $(".close").click(function(){
+        $("#downloadApp").hide();
+    });
+</script>
+
+</body>
+</html>

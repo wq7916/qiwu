@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>绮物论之论</title>
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <script type="text/javascript">
+        (function(win){
+            var docEl = win.document.documentElement;
+            var timer = null;
+            function changeRem(){
+                var width = docEl.getBoundingClientRect().width;
+                if(width > 540)
+                {
+                    width = 540;
+                }
+                var fontS = width/10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize",function(){
+                clearTimeout(timer);
+                timer = setTimeout(changeRem,30)
+            },false);
+
+            win.addEventListener("pageshow",function(e){
+                if (e.persisted) //缓存
+                {
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem,30);
+                }
+            },false);
+            changeRem();
+        })(window);
+    </script>
+
+    <style>
+        body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input,button{margin:0;padding:0;border:0}
+        body{font-size:12px;margin:0 auto;background:#f8f8f8;font-family:'Microsoft YaHei',Helvetica,Arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+        a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+        a,img{-webkit-touch-callout:none}
+        input,button{outline: none;border: none}
+        ol,ul,li{list-style:none}
+        .fl{float:left}
+        .fr{float:right}
+        textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#fff}
+        .clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+
+        .main{
+            width:10rem;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .list_content {
+            padding:0.5rem 0.2rem;
+        }
+        .list_content li{
+            margin-bottom:15px;
+            display: inline-block;
+        }
+        .list_content li.list2,.list_content li.list6{
+            width: 100%;
+            text-align: center;
+        }
+        .list_content li.list4,.list_content li.list8,.list_content li.list10{
+            width: 100%;
+            text-align: right;
+        }
+        .list_content li img {
+            vertical-align: middle;
+        }
+        .list_content li .photo{
+            border-radius: 50%;
+        }
+        .list_content li .photo0,.list_content li .photo5,.list_content li .photo10{
+            width:30px;
+            height:30px;
+        }
+        .list_content li .photo1,.list_content li .photo6,.list_content li .photo11{
+            width:35px;
+            height:35px;
+        }
+        .list_content li .photo2,.list_content li .photo7,.list_content li .photo12{
+            width:50px;
+            height:50px;
+        }
+        .list_content li .photo3,.list_content li .photo8,.list_content li .photo13{
+            width:25px;
+            height:25px;
+        }
+        .list_content li .photo4,.list_content li .photo9,.list_content li .photo14{
+            width:45px;
+            height:45px;
+        }
+        .list_content li span.title{
+            color:#000;
+            vertical-align: middle;
+            margin-left: 10px;
+            font-weight: 700;
+            padding-right:0.5rem;
+        }
+        .list_content li span.title0,.list_content li span.title5,.list_content li span.title10{
+            font-size:14px;
+        }
+        .list_content li span.title1,.list_content li span.title6,.list_content li span.title11{
+            font-size:12px;
+        }
+        .list_content li span.title2,.list_content li span.title7,.list_content li span.title12{
+            font-size:20px;
+        }
+        .list_content li span.title3,.list_content li span.title8,.list_content li span.title13{
+            font-size:14px;
+        }
+        .list_content li span.title4,.list_content li span.title9,.list_content li span.title14{
+            font-size:16px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div class="main">
+    <div class="list_content">
+        <ul class="list"></ul>
+    </div>
+</div>
+<div class="reminder"></div>
+<script type="text/javascript">
+
+    var userId=0;
+    var THIS_DOMAIN = 'http://m.here-chic.com';
+    var api = {
+        url: 'http://m.here-chic.com/apiController/',
+        userId: userId, //全局变量 替代了
+        categoryMore: ['103'],
+        sign: '88888888',
+        limit: '15',
+        offset: 1,
+        total: 0,
+        index: 0,
+        timers: null,
+        pid: 101,
+        coding: function (id) {
+            return encodeURI('par={"category":"'+id+'","limit":"'+api.limit+'","offset":"'+api.offset+'","sign": "'+api.sign+'"}');
+        },
+        listMore: function (i) {
+            var num = i;
+            $.ajax({
+                url: this.url+'news/newsList.do?'+this.coding(api.categoryMore[i]),
+                type: 'POST',
+                dataType: 'json',
+                success: function (res) {
+                    var obj = res.resData;
+                    api.total = obj.total;
+                    if(api.offset <= Math.ceil(api.total/5) && res.resData.rows.length){
+                        var html = '';
+                        for(var i=0;i<obj.rows.length;i++){
+                            var newsId = obj.rows[i].id;
+                            var newsType = obj.rows[i].type;
+                            var newsUrl = THIS_DOMAIN+'/app/scene.do?newsId='+newsId;
+                            //单元开始
+                            html += '<li class="list'+i+'"><a href="'+newsUrl+'">';
+                            //头像
+                            html += '<img src="'+obj.rows[i].photourl+'" class="photo'+i+' photo">';
+                            //名字
+                            //html += '<span class="">'+obj.rows[i].userName+'</span>';
+                            //标题
+                            html += '<span class="title'+i+' title">'+splitTitle(obj.rows[i].title)+'</span>';
+                            //单元结束
+                            html += '</a></li>';
+                        }
+                        $('.list_content ul').append(html);
+                        api.offset += 1;
+                    }else{
+                        console.log('到底了');
+                    }
+
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            })
+        }
+    }
+    function splitTitle(text) {
+        if (text.length > 10) {
+            return text.split('，')[0].length > 10 ? "# "+ text.split('，')[0].substring(0,6)+ " #" : "# "+ text.split('，')[0]+ " #"
+        }
+        return '# ' + text + ' #'
+    }
+    api.listMore(api.index);
+    $(function() {
+        $(window).scroll(function() {
+            var bot = 2; //bot是底部距离的高度
+            if ((bot + $(window).scrollTop()) >= ($(document).height() - $(window).height())) {
+                clearTimeout(api.timers);
+                api.timers = setTimeout(function() {
+                        api.listMore(api.index);
+                    },
+                    500)
+            }
+            if ($(document).scrollTop() >= 60) {
+                $(".header").css('position', 'fixed');
+            } else {
+                $(".header").css('position', 'relative');
+            }
+        });
+    })
+
+
+</script>
+
+</body>
+</html>

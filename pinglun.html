@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>绮物论</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+    <style>
+        body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, code, em, img, q, small, strong, dd, dl, dt, li, ol, ul, fieldset, form, label, table, tbody, tr, th, td, input, button {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        body {
+            font-size: 12px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+
+        a, a:active, a:hover, a:focus, a:visited {
+            text-decoration: none
+        }
+
+        a, img {
+            -webkit-touch-callout: none
+        }
+
+        input, button {
+            outline: none;
+            border: none
+        }
+
+        ol, ul, li {
+            list-style: none
+        }
+
+        .fl {
+            float: left
+        }
+
+        .fr {
+            float: right
+        }
+
+        .shopShow {
+            width: 4rem;
+            text-align: center;
+            font-size: 12px;
+            color: #0085e8;
+        }
+
+        textarea, input[type="password"], input[type="text"] {
+            resize: none;
+            outline: 0;
+            -webkit-appearance: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background: #fff
+        }
+
+        .clearfix:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .right10 {
+            margin-left: 0.2rem;
+            width: 6.4rem;
+        }
+
+        .left10 {
+            margin-right: 0.2rem;
+            width: 6.4rem;
+        }
+
+        body {
+            background: #ebebeb;
+        }
+
+        .main {
+            width: 10rem;
+            margin: 0 auto;
+            overflow: hidden;
+            background: #ebebeb;
+        }
+
+        .content {
+            padding: 0 0.2rem;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto
+        }
+
+        .content section {
+            margin-top: 20px;
+        }
+
+        .list_head {
+            width: 1rem;
+            height: 1rem
+        }
+
+        .list_head img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .list_content .name {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .list_content .article_word {
+            border-radius: 5px;
+            margin-top: 0.2rem;
+        }
+
+        .list_content .article_word span {
+            display: block;
+            padding: 0.2rem;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .list_content .article_word span a {
+            color: #f1885f;
+            /**font-style: italic;**/
+            font-size: 16px;
+            font-weight: 500;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-decoration: underline;
+        }
+
+        .first_people {
+            color: #333333;
+            background: #Ffffff;
+        }
+
+        .second_people {
+            color: #Ffffff;
+            background: #0085e8;
+        }
+
+        .list_content .article_tu {
+            width: 4rem;
+            cursor: pointer;
+        }
+
+        .list_content .article_tu img {
+            width: 100%;
+            margin-top: 0.2rem;
+            cursor: pointer;
+        }
+
+        .list_content .article_tu_noa {
+            width: 4rem;
+            cursor: pointer;
+        }
+
+        .list_content .article_tu_noa img {
+            width: 100%;
+            margin-top: 0.2rem;
+            cursor: pointer;
+        }
+
+        .hyy {
+            font-size: 0.3rem;
+            color: #fff;
+            text-align: center;
+            width: 45px;
+            margin: 0 auto;
+            background: #adabab;
+            font-weight: 500;
+            padding: 1px 0;
+            border-radius: 4px;
+        }
+
+        .aside_people {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            line-height: 20px;
+            padding: 0.1rem 1rem 0 1rem;
+        }
+
+        .aside_tu {
+            max-width: 250px;
+            margin: 5px auto 0;
+            display: block;
+            cursor: pointer;
+        }
+
+        .aside_tu_noa {
+            max-width: 250px;
+            margin: 5px auto 0;
+            display: block;
+            cursor: pointer;
+        }
+
+        .footer_desc {
+            font-size: 0.4rem;
+            color: #fff;
+            text-align: center;
+            width: 50px;
+            margin: 0 auto;
+            background: #333333;
+            font-weight: 500;
+            padding: 1px 0;
+            border-radius: 1px;
+            display: block;
+        }
+
+        .footer_pic {
+            border: solid 2px #eee;
+            max-width: 95%;
+            margin: 5px auto 30px;
+            display: block;
+            cursor: pointer;
+            display: none;
+        }
+
+        .next {
+            width: 9rem;
+            padding: 10px 0.5rem;
+            position: fixed;
+            left: 50%;
+            margin-left: -5rem;
+            bottom: 0;
+            background: #ebebeb;
+            display: none;
+        }
+
+        .nextTick .frame {
+            position: absolute;
+            top: 10px;
+            width: 40px;
+        }
+
+        .nextTick .frame_left {
+            left: 10px;
+        }
+
+        .nextTick .frame_right {
+            right: 10px;
+        }
+
+        .next_button {
+            width: 75px;
+            display: block;
+            margin: 18px auto 10px;
+        }
+
+        .content section:last-of-type {
+            margin-bottom: 70px;
+        }
+
+        .head-tou {
+            height: 28px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ebebeb;
+            z-index: 11111
+        }
+
+        .titleShow {
+            padding: 28px 5px 0 5px;
+        }
+
+        .titleShow h2 {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: normal;
+            color: #333;
+            padding-bottom: 5px;
+            padding-right: 38px;
+        }
+
+        .postinfo {
+            color: #999;
+            margin: 2px 0 0;
+            overflow: hidden;
+        }
+
+        .postinfo > span, .postinfo > div > span {
+            padding: 0 6px;
+            position: relative;
+            display: inline-block;
+            line-height: 24px;
+            font-size: 12px;
+        }
+
+        .postinfo > span:before, .postinfo > div > span:before {
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 10px;
+            background-color: #ddd;
+            right: -1px;
+            top: 7px;
+        }
+
+        .postinfo .author img {
+            width: 18px;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 100%;
+            margin-right: 6px;
+        }
+
+        .postinfo a {
+            color: #999;
+        }
+
+        /*提示*/
+        .reminder {
+            position: fixed;
+            z-index: 100000;
+            height: 66px;
+            top: 0;
+            left: 0;
+            line-height: 66px;
+            width: 100%;
+            color: #ffffff;
+            font-size: 16px;
+            text-align: center;
+            display: none
+        }
+
+        .reminder.success {
+            background: rgba(60, 165, 246, 0.75);
+        }
+
+        .reminder.error {
+            background: rgba(246, 55, 86, 0.85)
+        }
+
+        /**图片浮层**/
+        .picture {
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            cursor: pointer;
+        }
+
+        .picture .pic {
+            width: 9rem;
+            height: 80%;
+            margin: 20% auto 0;
+        }
+
+        .picture .pic img {
+            width: 100%
+        }
+
+        .picture span {
+            width: 40px;
+            height: 40px;
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            margin-left: -20px;
+            cursor: pointer;
+        }
+
+        .picture span img {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .linkimg img {
+            border: 2px dashed #ff0076;
+        }
+
+        /**结束浮层**/
+        .endfloat {
+            position: fixed;
+            z-index: 10000;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(214, 58, 95, 0.9);
+            display: none;
+            cursor: pointer;
+        }
+
+        .endfloat .pic {
+            width: 9rem;
+            height: 80%;
+            margin: 30% auto 0;
+        }
+
+        .endfloat .pic img {
+            width: 100%
+        }
+
+        .endfloat span {
+            width: 66px;
+            height: 66px;
+            display: block;
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            margin-left: -33px;
+            cursor: pointer;
+        }
+
+        .endfloat span img {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /**锁定浮层**/
+        .loveHereChic {
+            position: fixed;
+            z-index: 10000;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .loveHereChic p {
+            height: 22px;
+            font-family: inherit;
+        }
+
+        .loveHereChic .pic {
+            width: 6rem;
+            height: 80%;
+            margin: 40% auto 0;
+        }
+
+        .loveHereChic .pic img {
+            width: 100%
+        }
+
+        .loveHereChic span {
+            height: 30px;
+            display: block;
+            position: absolute;
+            bottom: 30%;
+            left: 23%;
+            margin: 40% auto 0;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .loveHereChic span img {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /*悬浮层*/
+        .layer {
+            height: 50px;
+            position: fixed;
+            right: 10px;
+            bottom: 60px;
+            z-index: 4;
+        }
+
+        .layer_menu {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            z-index: 5;
+            border-radius: 50%;
+        }
+
+        .layer_menu .black_bg {
+            width: 35px;
+            height: 35px;
+            padding: 5px;
+            float: left;
+            margin-right: 10px;
+            background-color: #000;
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            -khtml-opacity: 0.5;
+            opacity: 0.5;
+            border-radius: 50%;
+        }
+
+        .layer_menu img {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            z-index: 1;
+        }
+
+        .layer_show {
+            width: 250px;
+            height: 50px;
+            padding-right: 50px;
+            border-radius: 25px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .show_bg {
+            width: 300px;
+            height: 45px;
+            border-radius: 25px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            background-color: #000;
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            -khtml-opacity: 0.5;
+            opacity: 0.5;
+            z-index: 4;
+        }
+
+        .layer_show ul {
+            width: 250px;
+            height: 36px;
+            padding: 5px 0px;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            z-index: 5;
+        }
+
+        .layer_show ul li {
+            width: 25%;
+            float: left;
+            display: block;
+            text-align: center;
+        }
+
+        .layer_show ul li a {
+            width: 100%;
+            color: #fff;
+            float: left;
+        }
+
+        .layer_show ul li a p {
+            font-size: 12px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        //强制关注微信号代码
+        var uaBrowser = window.navigator.userAgent.toLowerCase();
+        var loveHereChic = false;
+        var jumpFlag = 0;
+        var isWeixin = false;
+        var loveHereChicShow = false;
+        if (uaBrowser.match(/MicroMessenger/i) == 'micromessenger') {
+            isWeixin = true;
+        }
+        if (isWeixin && !loveHereChic && jumpFlag == 0) {
+            //document.location="http://m.here-chic.com/api/getCode.do?newsId=10000642"
+        }
+    </script>
+
+    <script type="text/javascript">
+        (function (win) {
+            var docEl = win.document.documentElement;
+            var timer = null;
+
+            function changeRem() {
+                var width = docEl.getBoundingClientRect().width;
+                if (width > 540) {
+                    width = 540;
+                }
+                var fontS = width / 10;
+                docEl.style.fontSize = fontS + 'px';
+            }
+
+            win.addEventListener("resize", function () {
+                clearTimeout(timer);
+                timer = setTimeout(changeRem, 30)
+            }, false);
+
+            win.addEventListener("pageshow", function (e) {
+                if (e.persisted) //缓存
+                {
+                    clearTimeout(timer);
+                    timer = setTimeout(changeRem, 30);
+                }
+            }, false);
+            changeRem();
+        })(window);
+    </script>
+
+</head>
+<body>
+<div class="main">
+
+    <div class="head-tou"></div>
+    <div class="titleShow">
+        <h2>ææ³è¦æäº®</h2>
+        <div class="postinfo">
+            <div class="left">
+                <!--作者-->
+                <span class="author"><a href="http://news.here-chic.com/archives/author/admin" title="我是波波">
+                            <img class="avatar" src="">我是波波</a></span>
+                <!--分类-->
+                <span class="category"><a href="http://news.here-chic.com/teenix" rel="category tag">时尚潮流</a></span>
+                <!--时间-->
+                <span class="date">2018-05-10 22:41:35</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content" id="content"></div>
+    <div class="next">
+        <div class="nextTick">
+            <img src="http://m.here-chic.com/images/1.jpg" class="frame_left frame">
+            <img src="http://m.here-chic.com/images/2.jpg" class="frame_right frame">
+            <img src="http://m.here-chic.com/images/3.jpg" class="next_button">
+        </div>
+    </div>
+    <div class="reminder"></div>
+
+    <div class="picture">
+        <div class="pic">
+            <img src="">
+        </div>
+        <span><img src="http://m.here-chic.com/images/close.png"></span>
+    </div>
+
+    <div class="endfloat">
+        <div class="pic">
+            <img src="http://m.here-chic.com/images/chic_end.jpg">
+        </div>
+        <span><a href="http://m.here-chic.com/chic/index.do"><img src="http://m.here-chic.com/images/u137.png"></a></span>
+    </div>
+
+    <div class="loveHereChic">
+        <div class="pic">
+            <img src="http://m.here-chic.com/images/weixin.jpg">
+            <p align="center" style="font-size:12px;color:#fff;background-color:#000">[识别二维码关注《绮物论》解锁内容]</p>
+            <p align="center" style="font-size:12px;color:#fff;background-color:#000">[欺骗关注无耻，不喜欢大不了再取关]</p>
+            <br>
+            <p align="center" style="font-size:14px;"><a href="http://m.here-chic.com/chic/scene.do?newsId=10000642">[关注后请刷新]</a></p>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    var THIS_DOMAIN = "http://m.here-chic.com";
+    $(function () {
+        var obj = [], i = 0, j = 0, isover = false, objLength = '', objLastId = '', objLeftRight = true, objComment = [];
+        $.ajax({
+            url: THIS_DOMAIN + '/api/list.do?newsId=10000642',
+            type: 'GET',
+            dataType: 'json',
+            success: function (res) {
+                if (res.success) {
+                    obj = res.obj;
+                    objLength = obj.length;
+                    add(i);
+                }
+            }
+        });
+
+        //3秒钟自动播放
+        var timer = setInterval(autoPlay, 2000);
+
+        function add(i) {
+            var html = '';
+            var roleAvatar = obj[i].roleAvatar;
+            //alert(roleAvatar);
+            if(roleAvatar!=null && (roleAvatar.indexOf('http')<0)){//如果不是全路径就加上域名
+                roleAvatar = THIS_DOMAIN + roleAvatar;
+            }
+            var roleName = obj[i].roleName;
+            var roleType = obj[i].roleType;
+
+            var type = obj[i].type;
+            var link = obj[i].link;
+            var keyword = obj[i].keyword;
+            var content = obj[i].content;
+
+            if (type == 1 && keyword != null && keyword != "" && link != null && link != "") {
+                content = content.replace(keyword, '<a href="' + link + '">' + keyword + '</a>');
+            }
+
+            if (type == 2) {//图片
+                var imgsrc = content;
+                if(imgsrc.indexOf('http')<0){//如果不是全路径就加上域名
+                    imgsrc = THIS_DOMAIN + imgsrc;
+                }
+                loadImg(imgsrc, i);//加载图片
+                if (link != null && link != "") {
+                    if (roleType == 0) {
+                        content = '<a href="' + link + '" class="linkimg"><img src="' + imgsrc + '" class="aside_tu"/></a>';//旁白需要多加个样式
+                    } else {
+                        content = '<a href="' + link + '" class="linkimg"><img src="' + imgsrc + '" class="article_tu"/></a><span>【点图购买】</span>';
+                    }
+                } else {
+                    if (roleType == 0) {
+                        content = '<img src="' + imgsrc + '" class="aside_tu_noa commonPic" />';//旁白需要多加个样式
+                    } else {
+                        content = '<img src="' + imgsrc + '" class="article_tu_noa commonPic" />';
+                    }
+                }
+            }
+
+            if (roleType === 1) {//主角
+                if (type === 1) {//文字
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="' + roleAvatar + '"></div><div class="list_content right10 fl"><p class="name left">' + roleName + '</p><p class="article_word first_people fl"><span>' + content + '</span></p></div></section>';
+                }
+                if (type === 2) {//图片
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="' + roleAvatar + '"></div><div class="list_content right10 fl"><p class="name left">' + roleName + '</p><p class="shopShow">' + content + '</p></div></section>';
+                }
+            }
+
+            if (roleType === 2) {//配角
+                if (type === 1) {
+                    html = '<section class="list clearfix"><div class="list_head fr"><img src="' + roleAvatar + '"></div><div class="list_content left10 fr"><p class="name right">' + roleName + '</p><p class="article_word fr second_people"><span>' + content + '</span></p></div></section>';
+                }
+                if (type === 2) {
+                    html = '<section class="list clearfix"><div class="list_head fr"><img src="' + roleAvatar + '"></div><div class="list_content left10 fr"><p class="name right">' + roleName + '</p><p class="fr shopShow">' + content + '</p></div></section>';
+                }
+            }
+
+            if (roleType === 0) {//旁白
+                if (type === 1) {
+                    html = '<section class="clearfix"><h2 class="hyy">画外音</h2><p class="aside_people">' + content + '</p></section>';
+                }
+                if (type === 2) {
+                    html = '<section class="clearfix"><h2 class="hyy">画外音</h2>' + content + '</section>';
+                }
+            }
+
+            $('.content').append(html);
+            return true;
+        }
+        function addComment(j) {
+            var html = '';
+            if(j === 0 && objLeftRight){
+                html = '<section class="list clearfix"><div class="list_head fl"><img src="'+ objComment[j].userPhoto +'"></div><div class="list_content right10 fl"><p class="name left">'+ objComment[j].userName +'</p><p class="article_word first_people fl"><span>'+ objComment[j].commentContent +'</span></p><div class="clearfix"></div></div></section>';
+            } else {
+                if(objLastId === objComment[j].id) {
+                    if(!objLeftRight) {
+                        objLeftRight = false;
+                    }else {
+                        objLeftRight = true;
+                    }
+                } else {
+                    if(!objLeftRight) {
+                        objLeftRight = true;
+                    }else {
+                        objLeftRight = false;
+                    }
+                }
+                if (objLeftRight) {
+                    html = '<section class="list clearfix"><div class="list_head fl"><img src="'+ objComment[j].userPhoto +'"></div><div class="list_content right10 fl"><p class="name left">'+ objComment[j].userName +'</p><p class="article_word first_people fl"><span>'+ objComment[j].commentContent +'</span></p><div class="clearfix"></div></div></section>';
+                } else {
+                    html = '<section class="list clearfix"><div class="list_head fr"><img src="'+ objComment[j].userPhoto +'"></div><div class="list_content left10 fr"><p class="name right">'+ objComment[j].userName +'</p><p class="article_word first_people fr"><span>'+ objComment[j].commentContent +'</span></p><div class="clearfix"></div></div></section>';
+                }
+
+            }
+            objLastId = objComment[j].id;
+            $('.content').append(html);
+            return true;
+        }
+
+        //文章api
+        var api = {
+            //关注
+            apiUrl: 'http://m.here-chic.com/apiController/',   //全局接口前缀
+            pageNo: 1,
+            pageNo0: 1, //page
+            pageNo1: 1, //page
+            pageSize: 4, //每次加载条数
+            fansId: 10001,   //粉丝id当前登录的
+            userIdOne: 10001,  //点赞id
+            userName: 'wangqi',
+            userPhotoUrl: 'https://himg.bdimg.com/sys/portrait/item/ad6ce4b88ae6b5b7e7919ee8a3b38eae.jpg',
+            itemId: 10000000, //文章id
+            userIdTwo: 10000, //被关注id
+            userIdThree: 10004, //评论用户测试id
+            type: 1,  //类型
+            hf_commentid: '',
+            hf_userid: '',
+            index: '',
+            hf_type: '',
+            hf2_commentid:'',
+            hf2_comment:'',
+            falg:true,
+
+            tableSearchList: function (flag) { //评论对话
+
+                $.ajax({
+                    url: this.apiUrl+'news/commentList.do?itemid='+this.itemId+'&pageNo='+this.pageNo+'&pageSize='+this.pageSize+'&itemType='+this.type+'&sortType=1',
+                    dataType:'json',
+                    success:function(data){
+                        if(data != null ) {
+                            objComment = data.resData.rows;
+                        }
+                    }
+                })
+            }
+
+        };
+        api.tableSearchList(true);
+
+        function scrollBottom() {
+            var windowHeight = $(window).height() - $('.next').height() - $('.titleShow').height();
+            var content = document.getElementById('content');
+            var nowHeight = content.offsetHeight;
+            var height = nowHeight - windowHeight;
+            if (nowHeight >= windowHeight) {
+                $("body,html").animate({scrollTop: height}, 500);
+            }
+        }
+        function loadImg(src, index) {
+            var img = new Image();
+            img.src = src;
+            img.onload = function () {
+                $('.face-' + index).attr('src', src);
+                scrollBottom();
+            }
+        }
+        function autoPlay() {
+            if(obj && i < obj.length - 1){
+                i += 1;
+                if (add(i)) {
+                    scrollBottom();
+                }
+            } else {
+                if( j > objComment.length -1 ){
+                    if (!isover) {//最后一次加载footer
+                        var imgsrc = THIS_DOMAIN + "/images/footer2.jpg";
+                        var html = '<section class="clearfix"><h2 class="footer_desc">完结</h2><a href="http://m.here-chic.com/chic/index.do"><img src="' + imgsrc + '" class="footer_pic"/></a></section>';
+                        $('.content').append(html);
+                        loadImg(imgsrc, 100000);
+                    } else {//完结后 再次点击next加载 提示
+                        //$('.endfloat').fadeIn();
+                        // changeReminder('success','本文完结谢谢欣赏');
+                    }
+                    isover = true;
+                }else {
+                    if (addComment(j)){
+                        scrollBottom();
+                        j += 1;
+                    }
+                }
+            }
+        }
+        //点击按钮阅读
+        $('.main').click(function (e) {
+            clearInterval(timer);
+            var _con = $('.commonPic');
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+                if(obj && i < obj.length - 1){
+                    i += 1;
+                    if (add(i)) {
+                        scrollBottom();
+                    }
+                } else {
+                    if( j > objComment.length -1 ){
+                        if (!isover) {//最后一次加载footer
+                            var imgsrc = THIS_DOMAIN + "/images/footer2.jpg";
+                            var html = '<section class="clearfix"><h2 class="footer_desc">完结</h2><a href="http://m.here-chic.com/chic/index.do"><img src="' + imgsrc + '" class="footer_pic"/></a></section>';
+                            $('.content').append(html);
+                            loadImg(imgsrc, 100000);
+                        } else {//完结后 再次点击next加载 提示
+                            //$('.endfloat').fadeIn();
+                            // changeReminder('success','本文完结谢谢欣赏');
+                        }
+                        isover = true;
+                    }else {
+                        if (addComment(j)){
+                            scrollBottom();
+                            j += 1;
+                        }
+                    }
+                }
+
+                $('section .aside_tu').each(function () {
+                    var width = $(this).width();
+                    if (width == 0) width = 250;
+                    if (width > 250) {
+                        $(this).css('width', '250px');
+                    } else {
+                        $(this).css('width', width + 'px');
+                    }
+                })
+
+                //到10的时候锁屏
+                if (i == 10) {
+                    //loveHereChicFun();
+                }
+
+            }
+        });
+        //新发的评论
+        appShowDialog('100000703')
+        function appShowDialog(id){
+            //alert("发表评论成功"+id);
+            $.ajax({
+                url: 'http://m.here-chic.com/app/comment/getCommentInfo.do?'+ encodeURI('par={"id":"'+id+'"}'),
+                dataType:'json',
+                success: function (data) {
+                    var objComment = data;
+                    if (objComment.resCode === 200) {
+                        var html = '<section class="list clearfix"><div class="list_head fr"><img src="'+ objComment.userPhoto +'"></div><div class="list_content left10 fr"><p class="name right">'+ objComment.userName +'</p><p class="article_word first_people fr"><span>'+ objComment.commentContent +'</span></p><div class="clearfix"></div></div></section>';
+                        $('.content').append(html);
+                        scrollBottom();
+                    }
+                }
+            })
+        }
+        function toStrObj(strObj) {
+            var arr = []
+            for(let [k,v] of strObj) {
+                var obj = {}
+                obj.key = k;
+                obj.value = v;
+                arr.push(obj)
+            }
+            return arr;
+        }
+        let map = new Map([['a','1'],['b','2']])
+
+        console.log(JSON.stringify(toStrObj(map)))
+
+        function showComment(id){
+            //alert("点击评论框"+id);
+        }
+
+        //加载完了提示
+
+        function changeReminder(zt, bt) {
+            if (zt == 'success') {
+                $('.reminder').removeClass('error');
+            } else {
+                $('.reminder').removeClass('success');
+            }
+            $('.reminder').html(bt);
+            $('.reminder').addClass(zt);
+            $('.reminder').slideDown();
+            setTimeout(function () {
+                $('.reminder').slideUp();
+            }, 2500)
+
+        }
+
+        $('body').on('click', '.commonPic', function () {
+            var imgUrl = $(this).attr('src');
+            $('.picture').fadeIn();
+            $('.picture .pic img').attr('src', imgUrl);
+        })
+        $('body').on('click', '.picture', function () {
+            $('.picture').hide();
+        })
+
+    })
+
+</script>
+
+
+<!--<script type="text/javascript">-->
+
+    <!--$(function () {-->
+        <!--var url = location.href.split('#')[0];-->
+        <!--var title = "ææ³è¦æäº®";-->
+        <!--var link = THIS_DOMAIN + "/chic/scene.do?newsId=10000642";//;"http://weixin.cebnet.com.cn/share/convert?q=";-->
+        <!--var imgUrl = THIS_DOMAIN + "http://img.here-chic.com/40D8A35C-36A6-43ED-9F4A-6AA0902716F8";-->
+        <!--var desc = "绮物论，时尚潮流生活价值输出平台";-->
+        <!--$.ajax({-->
+            <!--type: "POST",-->
+            <!--url: "/api/getWeixinTicket.do",-->
+            <!--dataType: "JSON",-->
+            <!--async: true,-->
+            <!--data: {-->
+                <!--"url": url,-->
+            <!--},-->
+            <!--success: function (dataStr) {-->
+                <!--//console.log("data ======"+dataStr);-->
+                <!--var data = eval(dataStr);-->
+                <!--wx.config({-->
+                    <!--debug: false,-->
+                    <!--appId: data.appid,-->
+                    <!--timestamp: data.timestamp,-->
+                    <!--nonceStr: data.nonceStr,-->
+                    <!--signature: data.signature,-->
+                    <!--jsApiList: [-->
+                        <!--'checkJsApi',-->
+                        <!--'onMenuShareTimeline',-->
+                        <!--'onMenuShareAppMessage'-->
+                    <!--]-->
+                <!--});-->
+            <!--},-->
+            <!--error: function (xhr, status, error) {-->
+                <!--//alert(status);-->
+                <!--//alert(xhr.responseText);-->
+            <!--},-->
+        <!--});-->
+        <!--/* */-->
+        <!--wx.ready(function () {-->
+            <!--console.log("调用微信分享功能");-->
+            <!--//flag = false ;-->
+            <!--wx.onMenuShareTimeline({-->
+                <!--title: title,-->
+                <!--link: link,-->
+                <!--imgUrl: imgUrl,-->
+                <!--trigger: function (res) {-->
+                    <!--console.log('click shared');-->
+                <!--},-->
+                <!--success: function (res) {-->
+                    <!--console.log('shared success');-->
+                    <!--location.href = url;-->
+                    <!--//some thing you should do-->
+                <!--},-->
+                <!--cancel: function (res) {-->
+                    <!--console.log('shared cancle');-->
+                    <!--location.href = url;-->
+                <!--},-->
+                <!--fail: function (res) {-->
+                    <!--console.log(JSON.stringify(res));-->
+                <!--}-->
+            <!--});-->
+
+            <!--//分享给好友-->
+            <!--wx.onMenuShareAppMessage({-->
+                <!--title: title, // 分享标题-->
+                <!--desc: desc,// 分享描述-->
+                <!--link: link, // 分享链接-->
+                <!--imgUrl: imgUrl,// 分享图标-->
+                <!--type: 'link', // 分享类型,music、video或link，不填默认为link-->
+                <!--//dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空-->
+                <!--success: function () {-->
+                    <!--console.log('shared success');-->
+                    <!--location.href = url;-->
+                    <!--//some thing you should do-->
+                <!--},-->
+                <!--cancel: function () {-->
+                    <!--console.log('shared cancle');-->
+                    <!--location.href = url;-->
+                    <!--//some thing you should do-->
+                <!--}-->
+            <!--});-->
+
+            <!--wx.error(function (res) {-->
+                <!--console.log(res.errMsg);-->
+            <!--});-->
+        <!--});-->
+
+        <!--/*************end of 分享相关代码***********************************/-->
+    <!--})-->
+<!--</script>-->
+
+<script>
+    //修改为用户看了10个对话后再强制关注
+    function loveHereChicFun() {
+        //是微信打开，并且没有关注，并且已经验证回来了，就锁屏
+        if (isWeixin && !loveHereChic && jumpFlag == 1) {
+            loveHereChicShow = true;
+            $('.loveHereChic').fadeIn();
+        }
+    }
+</script>
+
+<div class="comment-kuan"></div>
+<div class="reminder"></div>
+
+
+</body>
+</html>

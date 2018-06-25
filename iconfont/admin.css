@@ -1,0 +1,151 @@
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input,button{margin:0;padding:0;border:0}
+body{font-size:12px;margin:0 auto;background:#f8f8f8;font-family:'Microsoft YaHei',Helvetica,Arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none}
+input,button{outline: none;border: none}
+ol,ul,li{list-style:none}
+.fl{float:left}
+.fr{float:right}
+textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#fff}
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+
+body,html{
+    height:100%;
+}
+.main{
+    width:10rem;
+    height:100%;
+    margin:0 auto;
+    overflow: hidden;
+    position:relative;
+    background: rgba(251,251,252,0.5);
+}
+
+.main_admin{
+    width:9rem;
+    padding:0.4rem 0 0.6rem 0;
+    background: #fff;
+    border-radius: 5px;
+    margin:0 auto;
+}
+.main_admin h1{
+    font-size:14px;
+    color:#000;
+    text-align: center;
+}
+.list{
+    margin:0 auto 0.8rem;
+    width:170px;
+    padding:1rem 0;
+    border-bottom:1px solid #cdcdcd;
+}
+.list li{
+    float: left;
+}
+.iconfont.icon-weixin-copy,.iconfont.icon-qq-copy,.iconfont.icon-weibo{
+    font-size:40px;
+}
+.icon-wx{
+    color:#364f6b;
+}
+.icon-qq{
+    color:#3fc1c9;
+    margin-left:25px;
+}
+.icon-wb{
+    color:#fc5185;
+    margin-left:25px;
+}
+.admin_phone p{
+    width:8rem;
+    margin:0 auto;
+    padding-top:0.5rem;
+}
+.admin_phone p .phone{
+    width:7.7rem;
+    height:40px;
+    border:1px solid #d7d7d7;
+    display: block;
+    background: #f5f5f5;
+    border-radius: 5px;
+    padding-left:0.2rem;
+    font-size:14px;
+}
+.admin_phone p .yzm{
+    width:3.4rem;
+    height:40px;
+    border:1px solid #d7d7d7;
+    background: #f5f5f5;
+    border-radius: 5px;
+    padding-left:0.2rem;
+    font-size:14px;
+}
+
+.admin_phone p .fs{
+    width:3.4rem;
+    height:42px;
+    background: #364f6b;
+    color:#fff;
+    line-height: 42px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    margin-left:0.9rem;
+    font-size:14px;
+}
+
+.admin_phone button{
+    width:8rem;
+    height:40px;
+    margin:0.5rem auto 0;
+    display: block;
+    background: #364f6b;
+    color:#fff;
+    font-size:14px;
+    border-radius: 5px;
+}
+.protocol{
+    text-align: center;
+    font-size:12px;
+
+}
+.protocol span{
+    color:#364f6b;
+    font-weight: 700;
+}
+
+.back_first{
+    width:9rem;
+    height:40px;
+    line-height: 40px;
+    background: #fff;
+    display: block;
+    margin:10px auto 0;
+    font-size:14px;
+    color:#000;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/*提示*/
+.reminder {
+    position: fixed;
+    z-index: 100000;
+    height: 66px;
+    top: 0;
+    left: 0;
+    line-height: 66px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    display: none
+}
+
+.reminder.success {
+    background: rgba(60, 165, 246, 0.75);
+}
+
+.reminder.error {
+    background: rgba(246, 55, 86, 0.85)
+}

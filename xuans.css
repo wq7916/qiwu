@@ -1,0 +1,110 @@
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input,button{margin:0;padding:0;border:0}
+body{font-size:12px;margin:0 auto;background:#f2f2f2;font-family:'Microsoft YaHei',Helvetica,Arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none}
+input,button{outline: none;border: none}
+ol,ul,li{list-style:none}
+.fl{float:left}
+.fr{float:right}
+textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#fff}
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+
+.main{
+    width:10rem;
+    margin:0 auto;
+    overflow: hidden;
+    position:relative;
+    background: #f2f2f2;
+}
+.content {
+    padding: 0 0.2rem;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+.content section {
+    margin-top: 20px;
+}
+.list_head {
+    width: 1rem;
+    height: 1rem;
+}
+.list_head img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.right10 {
+    margin-left: 0.2rem;
+    width: 6.4rem;
+}
+.left10 {
+    margin-right: 0.2rem;
+    width: 6.4rem;
+}
+.list_content .name {
+    font-size: 14px;
+    color: #666;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.list_content .article_word {
+    border-radius: 5px;
+    margin-top: 0.2rem;
+    border:1px solid #ccc;
+}
+.first_people {
+    color: #333333;
+    background: #Ffffff;
+}
+.con{
+    display: flex;
+    padding: 10px;
+    border-bottom:1px solid #e8e8e8;
+}
+.conRight{
+    flex: 0 0 70px;
+    width:70px;
+    height:70px;
+    margin-left:10px;
+}
+.conRight img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.conLeft{
+    flex: 1;
+    min-width: 125px;
+}
+.conLeft p{
+    color: #666;
+    font-size:12px;
+    line-height: 20px;
+}
+.conLeft p.back000{
+    color:#000;
+}
+.bottom{
+    font-size:12px;
+    padding:5px 10px;
+}
+.bottom span{
+    display: inline-block;
+}
+.bottom .time{
+    color: #999;
+    float: left;
+}
+.bottom .state{
+    float: right;
+}
+.bottom .stateN{
+    color:#000;
+}
+.bottom .stateY{
+    color:#6fd9cb;
+}

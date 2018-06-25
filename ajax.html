@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://m.here-chic.com/js/jquery.1.7.2.js"></script>
+</head>
+<body>
+<button>点击</button>
+<script>
+    $('button').click(function () {
+        add();
+    })
+
+    function add() {
+        $.ajax({
+            url:'http://m.here-chic.com/apiController/news/newsList.do?par=%7B%22category%22:%22103%22,%22limit%22:%225%22,%22offset%22:%221%22,%22sign%22:%20%2288888888%22%7D',
+            type: 'POST',
+            dataType: 'json',
+            success: function (res) {
+                console.log(res)
+            }
+        })
+    }
+    const getJSON = function(url) {
+        const promise = new Promise(function(resolve, reject){
+            const handler = function() {
+                if (this.readyState !== 4) {
+                    return;
+                }
+                if (this.status === 200) {
+                    resolve(this.response);
+                } else {
+                    reject(new Error(this.statusText));
+                }
+            };
+            const client = new XMLHttpRequest();
+            client.open("POST", url);
+            client.onreadystatechange = handler;
+            client.responseType = "json";
+            client.setRequestHeader("Accept", "application/json");
+            client.send();
+
+        });
+
+        return promise;
+    };
+
+    getJSON("http://m.here-chic.com/apiController/news/newsList.do?par=%7B%22category%22:%22103%22,%22limit%22:%225%22,%22offset%22:%221%22,%22sign%22:%20%2288888888%22%7D").then(function(json) {
+        console.log(json);
+    }, function(error) {
+        console.error('出错了', error);
+    });
+</script>
+</body>
+</html>
